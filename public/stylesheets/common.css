@@ -1,0 +1,45 @@
+html, body, h1, h2, h3, p, form, div, a {
+   margin: 0; padding: 0;
+   color: white;
+   font-family:arial;
+}
+
+p {
+   font-size: 9pt;
+   margin-bottom: 8px;
+}
+
+ul, li {
+   font-size: 9pt;
+}
+
+a {
+   color: #18b2b8;
+}
+
+a:hover {
+   color: #e3272a;
+}
+
+a img {
+   border: 0;
+}
+
+h1 {
+   font-size: 9pt;
+   margin-bottom: 10px;
+}
+
+h1.small {
+   font-size: 9pt;
+}
+
+h1 img{
+   vertical-align: middle;
+   margin-right: 5px;
+}
+
+#canvas {
+   height: 100%;
+   width: 100%;
+}

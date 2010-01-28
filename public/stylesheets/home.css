@@ -1,0 +1,162 @@
+@import url("common.css");
+
+body {
+   background: black url(/images/bg.jpg) repeat-x bottom;
+}
+
+#stage_lower {
+   width: 980px;
+   background: url(/images/curtains_low.jpg) no-repeat center top;
+   height: 100%;
+   position: relative;
+   margin: 0 auto;
+}
+
+#stage {
+   background: url(/images/curtains.jpg) no-repeat center top;
+   height: 100%;
+   position: relative;
+   margin: 0 auto;
+}
+
+#clubs {
+   width: 100%;
+   text-align: center;
+   color: white;
+   font-family: arial;
+   padding: 5px;
+   font-size: 14pt;
+   position: relative;
+   top: 10px;
+}
+
+#clubs  em{
+   padding-top: 2px;
+   display: block;
+}
+
+#large_logo {
+   position: absolute;
+   background: url(/images/logo_large.jpg?latest) no-repeat;
+   width: 369px;
+   height: 160px;
+   top: 73px;
+   left: 280px;
+   
+   _left: 285px; 
+}
+
+#featuring {
+   position: absolute;
+   background: url(/images/featuring.jpg) no-repeat;
+   width: 349px;
+   height: 67px;
+   top: 236px;
+   left: 306px;
+   
+   _left: 311px;
+}
+
+#ray_crowe {
+   position: absolute;
+   background: url(/images/ray_crowe_button.gif) no-repeat;
+   width: 201px;
+   height: 160px;
+   top: 250px;
+   left: 350px;
+}
+
+#columns {
+   width: 650px;
+   margin: 0 auto;
+   padding-top: 250px;
+   padding-bottom: 35px;
+   
+   _width: 700px;
+   _padding-left: 50px;
+}
+
+#columns .column {
+   width: 201px;
+   float: left;
+   margin-right: 12px;
+}
+
+.column .column_content {
+   background: url(/images/home_content_bg.jpg) no-repeat;
+   width: 185px;
+   padding: 10px;
+   margin-top: 10px;
+   min-height: 371px;
+   _height: 371px;
+   position: relative;
+}
+
+#adobe_reader {
+   position: absolute;
+   bottom: 0px;
+   width: 185px;
+   text-align: center;
+}
+
+#partners {
+   height: 230px;
+}
+
+#partners .partner{
+   float: left;
+   width: 30%;
+   font-family: arial;
+   text-align: center;
+}
+
+#partners h1 {
+   text-align: center;
+   font-size: 10pt;
+   padding: 3px;
+   font-weight: normal;
+   font-style: italic;
+}
+
+#partners .partner h2 {
+   color: white;
+   font-size: 11pt;
+   font-weight: normal;
+}
+
+#partners_cols {
+   width: 700px;
+   margin: 0 auto;
+   position: relative;
+   left: 40px;
+}
+
+#partners #asm {
+   width: 190px;
+}
+
+#partners #ibm {
+   width: 150px;
+}
+
+#partners #yams {
+   width: 300px;
+}
+
+#footer {
+   height: 112px;
+   background: url(/images/audience.jpg) no-repeat center bottom;
+}
+
+#footer_text {
+   position: relative;
+   top: 45px;
+}
+
+#footer p, 
+#footer a{
+   color: #484848;
+   text-align: center;
+   font-size: 8pt;
+   margin: 0; padding: 0;
+}

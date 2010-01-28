@@ -1,0 +1,156 @@
+@import url("common.css");
+
+html, body {
+   height: 100%;
+}
+
+body {
+   background: #131313 url(/images/interior_bg.jpg) repeat-x top;
+}
+
+#stage_lower {
+   width: 980px;
+   background: url(/images/interior_low.jpg) no-repeat center top;
+   height: 100%;
+   position: relative;
+   margin: 0 auto;
+}
+
+#stage {
+   background: url(/images/interior_high.jpg) no-repeat center top;
+   height: 100%;
+   position: relative;
+   margin: 0 auto;
+}
+
+#top_back_button {
+   position: absolute;
+   left: 215px;
+   top: 25px;
+}
+
+#bottom_back_button {
+   margin-top: 50px;
+}
+
+.back_button {
+   font-family: arial;
+   font-size: 10pt;
+   position: relative;
+   z-index: 5;
+}
+
+.back_button a{
+   color: white;
+   text-decoration: none;
+}
+
+.back_button a:hover span{
+   text-decoration: underline;
+}
+
+.back_button a img{
+   vertical-align: middle;
+   margin-right: 5px;
+}
+
+#contents {
+   padding-top: 57px;
+   width: 545px;
+   margin:0pt auto;
+   min-height: 575px;
+}
+
+#contents h1 {
+   margin-bottom: 18px;
+   font-size: 11pt;
+}
+
+#contents h2 {
+   font-size: 11pt;
+   margin-bottom: 10px;
+   padding-top: 8px;
+   font-style: italic;
+   border-bottom: 1px solid gray;
+}
+
+#footer {
+   height: 112px;
+   width: 100%;
+}
+
+#footer_text {
+   position: relative;
+   top: 45px;
+}
+
+#footer p, 
+#footer a{
+   color: #484848;
+   text-align: center;
+   font-size: 8pt;
+   margin: 0; padding: 0;
+}
+
+table {
+   font-family: arial;
+   font-size: 10pt;
+}
+
+table th {
+   color: white;
+}
+
+.resources .resource {
+   float: left;
+   width: 180px;
+   height: 115px;
+}
+
+.registration th {
+   font-weight: normal;
+   text-align: left;
+   vertical-align: top;
+   width: 110px;
+}
+
+.registration input {
+   margin-bottom: 3px;
+}
+
+.registration #attendents_table th {
+	font-weight: bold;
+}
+
+.registration #attendents_table tr td {
+	padding-bottom: 5px;
+}
+
+.registration #totals {
+	text-align: right;
+	font-weight: bold;
+	margin-top: 10px;
+}
+
+.registration #prices th {
+	font-weight: bold;
+	width: 150px;
+}
+
+.registration #errorExplanation {
+	background: darkRed;
+	padding: 10px;
+	border: 1px dashed white;
+}
+
+.fieldWithErrors {
+	display: inline;
+}
+
+#attendents_table input {
+  width: 130px;
+}
+
+#attendents_table select {
+  width: 130px;
+}

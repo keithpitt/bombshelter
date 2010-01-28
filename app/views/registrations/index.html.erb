@@ -1,0 +1,141 @@
+<h1>Online Registration</h1>
+
+<script type="text/javascript">
+
+	var types = {};
+
+	function update() {
+
+		var total = 0;
+
+		for(var k in types) {
+
+			if(!$F('registration_attendee_' + k)) continue;
+
+			var value = $F(types[k]), price = 0;
+
+			switch(value) {
+				case "M": price = <%=@prices[:M]%>; break;
+				case "SP": price = <%=@prices[:SP]%>; break;
+				case "J": price = <%=@prices[:J]%>; break;
+				case "SA": price = <%=@prices[:SA]%>; break;
+				case "B": price = <%=@prices[:B]%>; break;
+			}
+
+			$('attendee_' + k + '_price').innerHTML = '$' + price + '.00';
+
+			total += price;
+		}
+
+		$('total_number').innerHTML = '$' + total + '.00';
+
+	}
+
+	$(document).observe('dom:loaded', function() {
+		for(var i = 1, l = 6; i <= l; i++) {
+			var select = $('registration_attendee_' + i + '_type');
+			select.observe('change', update);
+
+			$('registration_attendee_' + i).observe('change', update);
+
+			types[i] = select;
+		}
+
+		update();
+	});
+
+
+</script>
+
+<% form_for :registration, @registration, :html => { :class => 'registration', :id => 'reg_form' } do |f| %>
+
+	<%= error_messages_for :registration %>
+
+	<h2>Contact Details</h2>
+
+	<table>
+		<tr>
+			<th>Full Name</th>
+			<td colspan="3"><%= f.text_field :full_name, :size => 45 %></td>
+		</tr>
+
+		<tr>
+			<th>Address</th>
+			<td><%= f.text_field :address_1, :size => 30 %></td>
+		</tr>
+		<tr>
+			<th>&nbsp;</th>
+			<td><%= f.text_field :address_2, :size => 30 %></td>
+			<th style="text-align: right">Postcode</th>
+			<td><%= f.text_field :post_code, :size => 5 %><br/></td>
+		</tr>
+
+		<tr>
+			<th>City</th>
+			<td><%= f.text_field :city, :size => 20 %><br/></td>
+			<th style="text-align: right">State</th>
+			<td><%= f.text_field :state, :size => 20 %><br/></td>
+		</tr>
+
+		<tr>
+			<th>Phone Number</th>
+			<td><%= f.text_field :phone_number, :size => 16 %><br/></td>
+			<th>Mobile Number</th>
+			<td><%= f.text_field :mobile_number, :size => 16 %><br/></td>
+		</tr>
+
+		<tr>
+			<th>Email</th>
+			<td colspan="3"><%= f.text_field :email, :size => 25 %></td>
+		</tr>
+
+		<tr>
+			<th>Website</th>
+			<td colspan="3"><%= f.text_field :website, :size => 40 %><br/></td>
+		</tr>
+	</table>
+
+	<p><label><%= f.check_box :amc_mailing_list %>&nbsp;Tick here if you <b>do not wish</b> to be added to the AMC mailing list.</label></p>
+
+	<h2>Prices</h2>
+
+	<table id="prices">
+		<tr><th>Magican</th><td>$<%=@prices[:M]%></td></tr>
+		<tr><th>Spouse/Partner</th><td>$<%=@prices[:SP]%></td></tr>
+		<tr><th>Junior (Under 16)</th><td>$<%=@prices[:J]%></td></tr>
+		<tr><th>Saturday Entrance</th><td>$<%=@prices[:SA]%></td></tr>
+		<tr><th>Banquet Ticket</th><td>$<%=@prices[:B]%></td></tr>
+	</table>
+
+	<h2>Registrants</h2>
+
+	<table id="attendents_table" width="100%" cellspacing="0">
+		<tr>
+			<th width="40%">Name of Attendee</th>
+			<th width="25%">Registration Type</th>
+			<th width="25%">Competitions</th>
+			<th style="width: 60px; text-align: right; padding-bottom: 10px;">Price</th>
+		</tr>
+		<% 6.times do |i| %>
+			<% i = i + 1 %>
+			<tr>
+				<td><%= f.text_field 'attendee_' + i.to_s, :size => 23 %></td>
+				<td><%= f.select 'attendee_' + i.to_s + '_type', @attendent_types %></td>
+				<td>
+					<% @competitions.each do |c| %>
+						<label><%= check_box_tag 'registration[attendee_' + i.to_s + '_competitions][]', c, false %><%=c%></label><br/>
+					<% end %>
+				</td>
+				<td style="text-align: right; font-weight: bold;"><span id="attendee_<%=i%>_price">$0.00</span></td>
+			</tr>
+		<% end %>
+	</table>
+
+	<div id="totals">
+		Total: <span id="total_number">$0.00</span>
+	</div>
+
+	<a href="#" onclick="$('reg_form').submit(); return false;"><%= image_tag('https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif') %></a>
+
+
+<% end %>

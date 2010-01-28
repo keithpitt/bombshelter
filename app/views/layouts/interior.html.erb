@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>Adelaide Magic Convention :: 16th - 18th October 2009</title>
+  <%= stylesheet_link_tag 'interior' %>
+  <%= javascript_include_tag :defaults %>
+</head>
+<body>
+
+<div id="canvas">
+   <div id="stage_lower">
+      <div id="stage">
+      
+         <div id="contents">
+            <%= yield %>
+            
+            <br style="clear: both"/>
+            <div id="bottom_back_button" class="back_button"><a href="/"><img src="/images/back_button_black.gif"><span>Back</span></a></div>
+         </div>
+         
+         <div id="footer">
+            <div id="footer_text">
+               <p>Copyright  2009 Bombshelter Magic.</p>
+               <p><a href="www.bombsheltermagic.com">www.bombsheltermagic.com</a></p>
+            </div>
+         </div>
+         
+      </div>
+   </div>
+</div>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+  var pageTracker = _gat._getTracker("UA-7842827-1");
+  pageTracker._trackPageview();
+} catch(err) {}</script>
+</body>
+</html>

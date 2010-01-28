@@ -1,0 +1,57 @@
+<% reason = nil unless defined? reason %>
+<% deadline = nil unless defined? deadline %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+      "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      version="-//W3C//DTD XHTML 1.1//EN" xml:lang="en">
+
+<head>
+  <title>Adelaide Magic Convention :: 16th - 18th October 2009</title>
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+  <style type="text/css">
+
+    body {
+      background: black;
+      color: white;
+      font-family: 'tahoma ms', 'arial', 'sans-seif';
+    }
+
+    #content {
+      margin: 50px auto;
+      width: 400px;
+      text-align: center;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div id="content">
+    <img src="/images/m_logo.gif" />
+    <h1>
+      We're currently offline for <%= reason ? reason : "maintenance" %>
+      as of <%= Time.now.strftime("%I:%M %p %Z") %>.
+    </h1>
+    <p>
+      Sorry for the inconvenience.  We'll be back 
+      <%= deadline ? "by #{deadline}" : "shortly" %>. 
+      Please <a href="mailto:admin@bombsheltermagic.com">e-mail us</a> 
+      if you need to get in touch.
+    </p>
+
+  </div>
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+  var pageTracker = _gat._getTracker("UA-7842827-1");
+  pageTracker._trackPageview();
+} catch(err) {}</script>
+
+</body>
+</html>

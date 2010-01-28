@@ -1,0 +1,91 @@
+
+<h1>Online Registration - Confirm</h1>
+
+<h2>Contact Details</h2>
+
+<div class="registration">
+
+	<table width="100%">
+		<tr>
+			<th>Full Name</th>
+			<td><%= h @registration.full_name %></td>
+		</tr>
+
+		<tr>
+			<th>Address</th>
+			<td><%= h @registration.address_1 %><br/><%= h @registration.address_2 %></td>
+		</tr>
+
+		<tr>
+			<th>Postcode</th>
+			<td><%= h @registration.post_code %><br/></td>
+		</tr>
+
+		<tr>
+			<th>City</th>
+			<td><%= h @registration.city %></td>
+		</tr>
+
+		<tr>
+			<th>State</th>
+			<td><%= h @registration.state %><br/></td>
+		</tr>
+
+		<tr>
+			<th>Phone Number</th>
+			<td><%= h @registration.phone_number %><br/></td>
+		</tr>
+
+		<tr>
+			<th>Mobile Number</th>
+			<td><%= h @registration.mobile_number %><br/></td>
+		</tr>
+
+		<tr>
+			<th>Email</th>
+			<td colspan="3"><%= h @registration.email %></td>
+		</tr>
+
+		<tr>
+			<th>Website</th>
+			<td colspan="3"><%= h @registration.website %><br/></td>
+		</tr>
+	</table>
+
+	<h2>Attendents</h2>
+
+	<table id="attendents_table" width="100%" cellspacing="0">
+		<tr>
+			<th width="40%">Name of Attendee</th>
+			<th width="25%">Registration Type</th>
+			<th width="25%">Competitions</th>
+			<th style="width: 60px; text-align: right; padding-bottom: 10px;">Price</th>
+		</tr>
+		<% 6.times do |i| %>
+			<% i = i + 1 %>
+			<% if @registration['attendee_' + i.to_s] != '' %>
+				<tr>
+					<td><%= h @registration['attendee_' + i.to_s] %></td>
+					<td>
+						<% @attendent_types.each do |a| %>
+							<% if a[1] == @registration['attendee_' + i.to_s + '_type'] %>
+								<%= h a[0] %>
+							<% end %>
+						<% end %>
+					</td>
+					<td><%= h @registration['attendee_' + i.to_s + '_competitions'] %></td>
+					<td style="text-align: right; font-weight: bold;"><%= number_to_currency @registration['attendee_' + i.to_s + '_price'] %></td>
+				</tr>
+			<% end %>
+		<% end %>
+	</table>
+
+	<div id="totals">
+		Total: <span id="total_number"><%= number_to_currency @registration.total %></span>
+	</div>
+
+	<% form_tag :action => 'complete', :token => params[:token], :PayerID => params[:PayerID] do %>
+	  <%= submit_tag 'Complete Registration' %>
+	<% end %>
+
+</div>
